@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from "react"
 
-export default () => {
+ const useDialog = () => {
 
     const [tabValue, setTabValue] = useState('1');
 
@@ -13,3 +13,5 @@ export default () => {
         handleChange,
     }
 }
+
+export default useDialog

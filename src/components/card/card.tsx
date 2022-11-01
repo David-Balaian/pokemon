@@ -7,19 +7,21 @@ import Typography from '@mui/material/Typography';
 import styles from './styles.module.css'
 import PokeInfo from '../modal/dialog';
 import useCard from './useCard';
+import { PokeInterface } from '../../interfaces/interfaces';
 
 type PokeCardProps = {
     name: string,
-    url: string
+    url: string,
+    searchedPoke?: PokeInterface
 }
 
-export const PokeCard = ({name, url}: PokeCardProps) => {
+export const PokeCard = ({name, url, searchedPoke}: PokeCardProps) => {
 
     const {
         poke,
         openFullInfo,
         handleFullInfo,
-    } = useCard(name, url)
+    } = useCard(name, url, searchedPoke)
 
     
     return (
@@ -28,11 +30,11 @@ export const PokeCard = ({name, url}: PokeCardProps) => {
                 classes={{root: styles.img}}
                 component="img"
                 image={poke?.sprites?.front_default}
-                alt={name}
+                alt={poke?.name}
             />
             <CardContent classes={{root: styles.cardContent}}>
             <Typography  variant="h5" component="div">
-                {name}
+                {poke?.name}
             </Typography>
             </CardContent>
             <CardActions>
@@ -42,3 +44,8 @@ export const PokeCard = ({name, url}: PokeCardProps) => {
         </Card>
     )
 };
+
+PokeCard.defaultProps = {
+    url: '',
+    name: ''
+}
