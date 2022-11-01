@@ -44,15 +44,15 @@ const useList = () => {
     const handleSearch = (e: any) => {
         const search = e.target.value
         setSearch(search)
-        if(search?.length > 2){
-            if(timeoutId.current) clearTimeout(timeoutId.current)
-            timeoutId.current = setTimeout(()=>{
+        if(timeoutId.current) clearTimeout(timeoutId.current)
+        timeoutId.current = setTimeout(()=>{
+            if(search?.length > 2){
                 setPokeByName(search)
-            }, 600)
-        }else{
-            setHelperText(null)
-            setSearchData(undefined)
-        }
+            }else{
+                setHelperText(null)
+                setSearchData(undefined)
+            }
+        }, 600)
     }
 
 
