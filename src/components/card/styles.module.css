@@ -1,0 +1,18 @@
+.card{
+    width: calc(100% / 4 - 20px);
+    height: calc(100% / 4 - 20px);
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cardContent{
+    padding: 0;
+}
+
+.img{
+    max-height: 100%;
+    width: unset !important;
+}
